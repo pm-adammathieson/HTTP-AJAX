@@ -1,0 +1,26 @@
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    border: 5px inset #ffef96;
+    margin: 1em;
+    padding: .5em;
+    background: #034f84;
+}
+
+.formtainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}
