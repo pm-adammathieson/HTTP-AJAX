@@ -11,3 +11,16 @@
     padding: .5em;
     background: #034f84;
 }
+
+.formtainer {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+}

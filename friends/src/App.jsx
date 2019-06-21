@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
-import FriendsList from './components/FriendsList.jsx';
+import FriendsList from './components/FriendsList';
+import FriendForm from './components/FriendForm'
 
 function App() {
   
@@ -9,6 +10,7 @@ function App() {
     <div className="App">
       <h1>The Friend Zone</h1>
       <FriendsList />
+      <FriendForm />
     </div>
   );
 }
