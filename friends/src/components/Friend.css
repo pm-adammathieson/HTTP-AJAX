@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 200px;
+    border: 5px inset #ffef96;
+    margin: 1em;
+    padding: .5em;
+    background: #034f84;
+}
