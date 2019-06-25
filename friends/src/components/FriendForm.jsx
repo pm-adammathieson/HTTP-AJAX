@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
  const FriendForm = (props) => {
-    const [friend, setFriend] = useState({name: '', age: '', email: '' })
+     const [friend, setFriend] = useState({name: '', age: '', email: '' })
+    
+    useEffect((friend) => {
+        return props.editFriend ? setFriend({...friend, ...props.editFriend}) : null 
+    }, [props.editFriend])
 
     const friendHandler = e => {
         setFriend({
@@ -10,16 +14,15 @@ import React, { useState } from 'react'
         })
     }
 
-    // addFriend = e => {
-    //     // e.preventDefault()
-        
+   const updateFriend = (xfriend) => {
+       props.updateFriend(xfriend)
+    }
 
-    // }
 
   return (
 
         <form 
-            onSubmit={() => {props.addFriend(friend)}}
+            onSubmit={props.editFriend ? () => {props.addFriend(friend)} : () => updateFriend(friend)}
             className='formtainer'>
             <div className="form-group">
                 <label>Name</label>
@@ -54,7 +57,7 @@ import React, { useState } from 'react'
                 className="btn btn-primary"
                 type='submit'
             >
-                    Add Friend
+                    {props.editFriend ? 'Edit Friend' : 'Add Friend'}
             </button>
         </form>
   )

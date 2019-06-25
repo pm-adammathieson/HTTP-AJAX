@@ -7,6 +7,10 @@ import './Friend.css'
     const deleteFriend = () => {
       props.deleteFriend(id)
     }
+
+    const editFriend = () => {
+      props.editingFriend(props.friend)
+    }
   return (
   
         <div className='card'>
@@ -18,7 +22,15 @@ import './Friend.css'
             <button 
                 className="btn btn-danger"
                 onClick={deleteFriend}
-                >Delete Friend</button>
+                >
+                  Delete Friend
+            </button>
+            <button 
+                className="btn btn-success"
+                onClick={editFriend}
+                >
+                  Edit
+            </button>
         </div>
   )
 }

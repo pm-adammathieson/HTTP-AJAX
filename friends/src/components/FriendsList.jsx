@@ -9,6 +9,7 @@ import axios from 'axios'
 const FriendsList = () => {
 
     const [friends, setFriends] = useState([])
+    const [editFriend, setEditFriend] = useState([])
 
     useEffect(() => {
       axios
@@ -16,9 +17,9 @@ const FriendsList = () => {
         .then(res => setFriends(res.data))
     }, [])
 
-    const addFriend = friend => {
+    const addFriend = newfriend => {
       axios
-        .post('http://localhost:5000/friends', friend)
+        .post('http://localhost:5000/friends', newfriend)
         .then(res => setFriends(res.data))
     }
 
@@ -26,6 +27,18 @@ const FriendsList = () => {
       console.log(id)
       axios
         .delete(`http://localhost:5000/friends/${id}`)
+        .then(res => setFriends(res.data))
+        .catch(err => console.log(err))
+    }
+
+    const editingFriend = friend => {
+      setEditFriend({...friend})
+    }
+
+    const updateFriend = friend => {
+      console.log(friend, friend.id)
+      axios
+        .put(`http://localhost:5000/friends/${friend.id}`, friend)
         .then(res => setFriends(res.data))
         .catch(err => console.log(err))
     }
@@ -38,10 +51,15 @@ const FriendsList = () => {
             key={index} 
             friend={friend}
             deleteFriend={deleteFriend}
+            editingFriend={editingFriend}
           />
         ))}
       </div>
-      <FriendForm addFriend={addFriend}/>
+      <FriendForm 
+        addFriend={addFriend}
+        editFriend={editFriend}
+        updateFriend={updateFriend}
+      />
     </>
   )
 }
