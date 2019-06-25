@@ -1,7 +1,6 @@
 import React from 'react';
 import './App.css';
 import FriendsList from './components/FriendsList';
-import FriendForm from './components/FriendForm'
 // import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
     <div className="App">
       <h1>The Friend Zone</h1>
       <FriendsList />
-      <FriendForm />
+   
     </div>
   );
 }

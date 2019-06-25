@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
- const FriendForm = () => {
+ const FriendForm = (props) => {
     const [friend, setFriend] = useState({name: '', age: '', email: '' })
 
     const friendHandler = e => {
@@ -10,9 +10,17 @@ import React, { useState } from 'react'
         })
     }
 
+    // addFriend = e => {
+    //     e.preventDefault()
+        
+
+    // }
+
   return (
 
-        <form className='formtainer'>
+        <form 
+            onSubmit={() => {props.addFriend(friend)}}
+            className='formtainer'>
             <div className="form-group">
                 <label>Name</label>
                 <input 
