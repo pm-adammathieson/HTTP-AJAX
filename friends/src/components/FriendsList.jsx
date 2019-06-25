@@ -22,11 +22,23 @@ const FriendsList = () => {
         .then(res => setFriends(res.data))
     }
 
+    const deleteFriend = id => {
+      console.log(id)
+      axios
+        .delete(`http://localhost:5000/friends/${id}`)
+        .then(res => setFriends(res.data))
+        .catch(err => console.log(err))
+    }
+
   return (
     <>
       <div className='list'>
         {friends.map((friend, index) => (
-          <FriendCard key={index} friend={friend}/>
+          <FriendCard 
+            key={index} 
+            friend={friend}
+            deleteFriend={deleteFriend}
+          />
         ))}
       </div>
       <FriendForm addFriend={addFriend}/>

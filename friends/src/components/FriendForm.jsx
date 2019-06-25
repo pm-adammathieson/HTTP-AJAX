@@ -11,7 +11,7 @@ import React, { useState } from 'react'
     }
 
     // addFriend = e => {
-    //     e.preventDefault()
+    //     // e.preventDefault()
         
 
     // }

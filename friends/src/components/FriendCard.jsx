@@ -2,7 +2,11 @@ import React from 'react'
 import './Friend.css'
 
  const FriendCard = props => {
-    const {name, age, email} = props.friend
+    const {name, age, email, id} = props.friend
+
+    const deleteFriend = () => {
+      props.deleteFriend(id)
+    }
   return (
   
         <div className='card'>
@@ -11,6 +15,10 @@ import './Friend.css'
                 <p className='card-text'>Age: {age}</p>
                 <p className='card-text'>Email: {email}</p>
             </div>
+            <button 
+                className="btn btn-danger"
+                onClick={deleteFriend}
+                >Delete Friend</button>
         </div>
   )
 }
