@@ -1,48 +1,54 @@
 import React, { useState } from 'react'
 
  const FriendForm = () => {
-    const [name, setName] = useState('')
-    const [age, setAge] = useState('')
-    const [email, setEmail] = useState('')
+    const [friend, setFriend] = useState({name: '', age: '', email: '' })
 
-    const nameHandler = e => {
-        setName(e.target.value)
-    }
-
-    const ageHandler = e => {
-        setAge(e.target.value)
-    }
-
-    const emailHandler = e => {
-        setEmail(e.target.value)
+    const friendHandler = e => {
+        setFriend({
+            ...friend,
+            [e.target.name]:e.target.value
+        })
     }
 
   return (
-    <div className="formtainer">
-        <form className='form'>
-            <div className="inputs">
+
+        <form className='formtainer'>
+            <div className="form-group">
+                <label>Name</label>
                 <input 
+                    name='name'
+                    className='form-control'
                     type="text"
-                    value={name}
-                    onChange={nameHandler}
+                    value={friend.name}
+                    onChange={friendHandler}
                     placeholder='Name'
                 />
+                <label>Age</label>
                 <input 
+                    name='age'
                     type="text"
-                    value={age}
-                    onChange={ageHandler}
+                    className='form-control'
+                    value={friend.age}
+                    onChange={friendHandler}
                     placeholder="Age"
                 />
+                <label>Email</label>
                 <input 
-                    type="text"
-                    value={email}
-                    onChange={emailHandler}
+                    name='email'
+                    type="email"
+                    className='form-control'
+                    value={friend.email}
+                    onChange={friendHandler}
                     placeholder='Email'
                 />
             </div>
-            <button className="btn">Add Friend</button>
+            <button
+                className="btn btn-primary"
+                type='submit'
+            >
+                    Add Friend
+            </button>
         </form>
-    </div>
   )
 }
 
